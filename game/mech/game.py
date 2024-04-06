@@ -2,7 +2,7 @@ from game.mech.cookbook import Cookbook
 import random
 
 class Game:
-    def __init__(self, cookbook: Cookbook, randomItems, chosenItems, allRecipes):
+    def __init__(self, cookbook: Cookbook, randomIngredients, chosenIngredients, allRecipes):
         self.cookbook = cookbook;
 
     def getCookbook(self):
@@ -12,7 +12,7 @@ class Game:
         return (len(self.cookbook) / len(self.allRecipes)) * 100
     
     def rollForItem(self):
-        return random.choice(self.randomItems)
+        return random.choice(self.randomIngredients)
     
 
     
