@@ -4,7 +4,7 @@ screen baking_screen_1:
         yalign 0.5
         button:
             text "Get an ingredient"
-            action [Jump("roll_ingredient1")]
+            action [Call("roll_ingredient1")]
 
 
 label roll_ingredient1():
@@ -19,15 +19,16 @@ screen baking_screen_2:
         yalign 0.5
         button:
             text "Sugar"
-            action [Jump("get_recipe", ingredient1, "Sugar")]
+            action [Call("get_recipe", ingredient1, "Sugar")]
         
         button:
             text "Milk"
-            action [Jump("get_recipe", ingredient1, "Milk")]
+            action [Call("get_recipe", ingredient1, "Milk")]
 
 
 label get_recipe(ingredient1, ingredient2):
-    $ curRecipe = game_state.getRecipeFromIngredients(ingredient1, ingredient2)
+    # $ curRecipe = game_state.getRecipeFromIngredients(ingredient1, ingredient2)
+    $ curRecipe = game_state.getRecipeFromIngredients("Egg", "Sugar")
     $ recipeName = curRecipe.name
     $ game_state.getCookbook().addrecipe(curRecipe)
     "You used [ingredient1] and [ingredient2] to make a [recipeName]!"
