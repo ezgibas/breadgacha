@@ -54,11 +54,13 @@ class GameState:
         if recipe == self.allRecipes['milk_bread_normal']:
             return [self.allRecipes['milk_bread_strawberry'], self.allRecipes['bread_milk']]
         # TODO sugar cookie
+        if recipe == self.allRecipes['sugar_cookie_normal']:
+            return []
         if recipe == self.allRecipes['croissant_normal']:
             return [self.allRecipes['croissant_almond'], self.allRecipes['croissant_chocolate']]
         
-        return variants
-    
+    def rollForVariation(self, recipe):
+        return random.choice(self.getVariantsOfRecipe(recipe))
 
     
 

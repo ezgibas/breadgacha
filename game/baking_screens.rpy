@@ -30,10 +30,17 @@ label get_recipe(ingredient1, ingredient2):
     $ curRecipe = game_state.getRecipeFromIngredients(ingredient1, ingredient2)
     $ recipeName = curRecipe.name
     "You used [ingredient1] and [ingredient2] to make a [recipeName]!"
+    if game_state.countCompletedRecipes() >= 6:
+        if game_state.countCompletedRecipes() == 6:
+            "You've made a lot of recipes! You should try to make a new one." # TODO placeholder dialogue
+        call screen roll_for_recipe_variation
+        $ curRecipe = game_state.rollForVariation(curRecipe)
+        $ recipeName = curRecipe.name
+
+
     call show_recipe_dialogue(curRecipe)
 
     return
-    # TODO roll for recipe variation
 
 label show_recipe_dialogue(recipe):
     if cookbook.hasrecipe(recipe):
@@ -57,3 +64,11 @@ menu repeat_recipe_dialogue:
         boss "Ah, but of course. I’ve scarcely met someone quite as eager to learn as you."
         call current_recipe_dialogue(curRecipe)
         hide boss_happy
+
+screen roll_for_recipe_variation:
+    grid 1 1:
+        xalign 0.5
+        yalign 0.5
+        button:
+            text "Get a recipe variation"
+            action [Return()] # TODO idk if this is right

@@ -21,7 +21,7 @@ class Variables:
         # brownies
         brownie_normal = Recipe("Brownie", "Egg, Sugar")
         brownie_blondie = Recipe("Blondie", brownie_normal.description)
-        brownie_weed = Recipe("Weed Brownie", brownie_normal.description)
+        brownie_weed = Recipe("Space Brownie", brownie_normal.description)
 
         # mooncake
         mooncake_normal = Recipe("Mooncake", "Flour, Sugar")
