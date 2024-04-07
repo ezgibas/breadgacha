@@ -1,10 +1,9 @@
+
+
 screen baking_screen_1:
-    grid 1 1:
-        xalign 0.75
-        yalign 0.5
-        button:
-            text "Get an ingredient"
-            action [Call("roll_ingredient1")]
+    imagebutton:
+        idle "images/ui/button_get_an_ingredient.png"
+        action [Call("roll_ingredient1")]
 
 
 label roll_ingredient1:
@@ -17,26 +16,33 @@ screen baking_screen_2:
         xalign 0.75
         yalign 0.5
         text "What else do you need?"
-        button:
-            text "Sugar"
+        imagebutton:
+            idle "images/ui/button_sugar.png"
             action [Call("get_recipe", ingredient1, "Sugar")]
         
-        button:
-            text "Milk"
+        imagebutton:
+            idle "images/ui/button_milk.png"
             action [Call("get_recipe", ingredient1, "Milk")]
 
 
 label get_recipe(ingredient1, ingredient2):
     $ curRecipe = game_state.getRecipeFromIngredients(ingredient1, ingredient2)
-    $ recipeName = curRecipe.name
     if game_state.countCompletedRecipes() >= 6:
         if game_state.countCompletedRecipes() == 6:
             "You've made a lot of recipes! You should try to make a new one." # TODO placeholder dialogue
         call screen roll_for_recipe_variation
         $ curRecipe = game_state.rollForVariation(curRecipe)
         $ recipeName = curRecipe.name
-    "You used [ingredient1] and [ingredient2] to make a [recipeName]!"
+    call show_recipe(curRecipe)
+    return
 
+
+label show_recipe(curRecipe):
+    $ recipeName = curRecipe.name
+    $ recipeImagePath = imagemap[recipeName]
+    show image [recipeImagePath] at top
+    "You used [ingredient1] and [ingredient2] to make a [recipeName]!"
+    hide recipe_image
     call show_recipe_dialogue(curRecipe)
 
     return
@@ -65,9 +71,6 @@ menu repeat_recipe_dialogue:
         hide boss happy
 
 screen roll_for_recipe_variation:
-    grid 1 1:
-        xalign 0.5
-        yalign 0.5
-        button:
-            text "Get a recipe variation"
-            action [Return()] # TODO idk if this is right
+    imagebutton:
+        idle "images/ui/button_get_a_variation.png"
+        action [Return()] 

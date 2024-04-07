@@ -15,6 +15,9 @@ image wife shock = "../images/sprites/honey_shock.png"
 
 image bakery_morning = "../images/bgs/bakery.png"
 image bakery_night = "../images/bgs/bakery_nolight.png"
+image kitchen = "../images/bgs/kitchen.png"
+
+
 
 define boss = Character('Ginger')
 define wife = Character('Honey')
@@ -26,8 +29,9 @@ init python:
     from game.mech.global_vars import Variables
     from game.mech.cookbook import Recipe
     global_vars = Variables()
-    bakeryName, playerName, game_state, allRecipes, randomIngredients, chosenIngredients = global_vars.getVariables()
+    bakeryName, playerName, game_state, allRecipes, randomIngredients, chosenIngredients, imagemap = global_vars.getVariables()
     curRecipe = None
+    recipeImagePath = "images/food/tart.png"
     if speedrun:
         cookbook = game_state.getCookbook()
         cookbook.addrecipe(Recipe('sldkf', 'stuff')) 
@@ -86,7 +90,7 @@ label day_loop:
         jump day_loop
 
 label bake:
-    "now you are baking"
+    scene kitchen
     call screen baking_screen_1
     call screen baking_screen_2
     return
