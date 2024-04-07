@@ -1,0 +1,6 @@
+*.txt
+*.rpyc
+*.rpyb
+game/saves/
+game/cache/
+game/mech/__pycache__/*

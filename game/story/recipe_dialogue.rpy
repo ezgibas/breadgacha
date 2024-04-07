@@ -1,6 +1,14 @@
 import global_vars from '../mech/global_vars.py'
 
-label brownie_normal:
+label show_recipe_dialogue:
+    if curRecipe == 'brownie_normal':
+        jump brownie_normal
+    elif curRecipe == 'croissant_normal':
+        jump croissant_normal
+
+    return
+
+screen brownie_normal:
     "Brownies are easy to make, but difficult to master. You are acutely aware of this, having baked 
     a family recipe for them numerous times; you often feel as though something is just off, whether
     that’s in the consistency, the texture, or something entirely different, but you’ve never made a bad batch, per se"
@@ -16,6 +24,7 @@ label brownie_normal:
     it ends up being a hit with your customers."
 
     $ cookbook['brownie_normal'] = True
+    return
 
 label brownie_blondie:
     "Having already misperfected the brownie, the natural progression seemed obvious: it was time to 
@@ -27,7 +36,7 @@ label brownie_blondie:
     to a karaoke bar with a group of friends when we were young, and her commanding that cramped little room as she sung one of their old hits…"
 
     boss "Ah, my apologies. As for the desserts… I suggest making something that tastes a little better."
-
+    return 
 
 label croissant_normal:
 
