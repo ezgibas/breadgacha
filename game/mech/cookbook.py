@@ -10,6 +10,11 @@ class Recipe:
         self.name = name
         self.description = description
 
+    def __eq__(self, other):
+        if not isinstance(other, Recipe):
+            return False
+        return self.name == other.name
+
     # string representation of the recipe
     def __str__(self):
         return self.name
@@ -31,11 +36,14 @@ class Cookbook:
         for recipe in self.recipes:
             result += str(recipe) + "\n"
         return result
+    
+    def __len__(self):
+        return len(self.recipes)
 
     # check if the cookbook has an recipe
     # recipe (Recipe): recipe to check
     def hasrecipe(self, recipe):
-        return self.recipes[recipe.name]
+        return recipe.name in self.recipes.keys()
 
     # add an recipe to the cookbook
     # recipe (Recipe): recipe to add

@@ -1,0 +1,2 @@
+label morning_scene:
+    

@@ -16,6 +16,9 @@ class GameState:
     def getCompletionPct(self):        
         return (len(self.cookbook) / len(self.allRecipes)) * 100
     
+    def countCompletedRecipes(self):
+        return len(self.cookbook)
+    
     def rollForItem(self):
         return random.choice(self.randomIngredients)
     
@@ -38,9 +41,23 @@ class GameState:
             if ingredient2 == 'Milk':
                 return self.allRecipes['croissant_normal']
         
-        # TODO ADD THE REST OF THE RECIPES
         else:
             return None
+        
+    def getVariantsOfRecipe(self, recipe):
+        if recipe == self.allRecipes['brownie_normal']:
+            return [self.allRecipes['brownie_blondie'], self.allRecipes['brownie_weed']]
+        if recipe == self.allRecipes['mooncake_normal']:
+            return [self.allRecipes['mooncake_redbean'], self.allRecipes['mooncake_blue']]
+        if recipe == self.allRecipes['pineapple_bun_normal']:
+            return [self.allRecipes['pineapple_bun_custard'], self.allRecipes['pineapple_bun_pineapple']]
+        if recipe == self.allRecipes['milk_bread_normal']:
+            return [self.allRecipes['milk_bread_strawberry'], self.allRecipes['bread_milk']]
+        # TODO sugar cookie
+        if recipe == self.allRecipes['croissant_normal']:
+            return [self.allRecipes['croissant_almond'], self.allRecipes['croissant_chocolate']]
+        
+        return variants
     
 
     

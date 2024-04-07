@@ -1,10 +1,21 @@
 import global_vars from '../mech/global_vars.py'
 
-label show_recipe_dialogue:
+label current_recipe_dialogue(curRecipe):
     if curRecipe == allRecipes['brownie_normal']:
         call brownie_normal
+    elif curRecipe == allRecipes['brownie_blondie']:
+        call brownie_blondie
+    elif curRecipe == allRecipes['mooncake_normal']:
+        call mooncake_normal
+    elif curRecipe == allRecipes['pineapple_bun_normal']:
+        call pineapple_bun_normal
+    elif curRecipe == allRecipes['milk_bread_normal']:
+        call milk_bread_normal
+    elif curRecipe == allRecipes['sugar_cookie_normal']:
+        call sugar_cookie_normal
     elif curRecipe.name == 'croissant_normal':
         call croissant_normal
+    
 
     return
 
@@ -39,5 +50,22 @@ label brownie_blondie:
     boss "Ah, my apologies. As for the desserts… I suggest making something that tastes a little better."
     return 
 
-label croissant_normal:
+label mooncake_normal:
+    "mooncake"
+    return
 
+label pineapple_bun_normal:
+    "pineapple bun"
+    return
+
+label milk_bread_normal:
+    "milk bread"
+    return
+
+label sugar_cookie_normal:
+    "sugar cookie"
+    return
+
+label croissant_normal:
+    "croissant"
+    return
