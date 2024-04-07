@@ -40,6 +40,8 @@ class Variables:
 
         # sugar cookie
         sugar_cookie_normal = Recipe("Sugar Cookie", "Butter, Sugar")
+        sugar_cookie_pink = Recipe("Pink Sugar Cookie", sugar_cookie_normal.description)
+        sugar_cookie_birthday = Recipe("Sugar Cookie with Birthday Sprinkles", sugar_cookie_normal.description)
 
         # croissants
         croissant_normal = Recipe("Croissant", "Butter, Milk")
@@ -57,7 +59,8 @@ class Variables:
         allRecipes['milk_bread_strawberry'] = milk_bread_strawberry
         allRecipes['bread_milk'] = bread_milk
         allRecipes['sugar_cookie_normal'] = sugar_cookie_normal
-        # TODO sugar cookie variants
+        allRecipes['sugar_cookie_pink'] = sugar_cookie_pink
+        allRecipes['sugar_cookie_birthday'] = sugar_cookie_birthday
         allRecipes['pineapple_bun_normal'] = pineapple_bun_normal
         allRecipes['pineapple_bun_custard'] = pineapple_bun_custard
         allRecipes['pineapple_bun_pineapple'] = pineapple_bun_pineapple

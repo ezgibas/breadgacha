@@ -53,14 +53,29 @@ class GameState:
             return [self.allRecipes['pineapple_bun_custard'], self.allRecipes['pineapple_bun_pineapple']]
         if recipe == self.allRecipes['milk_bread_normal']:
             return [self.allRecipes['milk_bread_strawberry'], self.allRecipes['bread_milk']]
-        # TODO sugar cookie
         if recipe == self.allRecipes['sugar_cookie_normal']:
-            return []
+            return [self.allRecipes['sugar_cookie_pink'], self.allRecipes['sugar_cookie_birthday']]
         if recipe == self.allRecipes['croissant_normal']:
             return [self.allRecipes['croissant_almond'], self.allRecipes['croissant_chocolate']]
         
     def rollForVariation(self, recipe):
         return random.choice(self.getVariantsOfRecipe(recipe))
+    
+    def getRecipeByIdx(self, idx):
+        recipeName = list(self.allRecipes.keys())[idx]
+        return self.allRecipes[recipeName]
+
+    def getPrevRecipe(self, idx):
+        if idx > 0:
+            return self.getRecipeByIdx(idx - 1)
+        else:
+            return self.getRecipeByIdx(idx)
+        
+    def getNextRecipe(self, idx):
+        if idx < len(self.allRecipes) - 1:
+            return self.getRecipeByIdx(idx + 1)
+        else:
+            return self.getRecipeByIdx(idx)
 
     
 

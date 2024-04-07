@@ -51,19 +51,3 @@ class Cookbook:
         self.recipes[recipe.name] = True
         if (debug):
             print(self)
-
-    def getPrevRecipe(self, recipe):
-        indexOfRecipe = self.recipes.keys().index(recipe.name)
-        if indexOfRecipe > 0:
-            nameOfPrev = self.recipes.keys()[indexOfRecipe - 1]
-            return self.recipes[nameOfPrev]
-        else:
-            return recipe
-        
-    def getNextRecipe(self, recipe):
-        indexOfRecipe = self.recipes.keys().index(recipe.name)
-        if indexOfRecipe < len(self.recipes.keys()) - 1:
-            nameOfNext = self.recipes.keys()[indexOfRecipe + 1]
-            return self.recipes[nameOfNext]
-        else:
-            return recipe
