@@ -4,35 +4,35 @@ label current_recipe_dialogue(curRecipe):
     if speedrun:
         return
     if curRecipe == allRecipes['brownie_normal']:
-        call brownie_normal
+        call brownie_normal from _call_brownie_normal
     elif curRecipe == allRecipes['brownie_blondie']:
-        call brownie_blondie
+        call brownie_blondie from _call_brownie_blondie
     elif curRecipe == allRecipes['brownie_weed']:
-        call brownie_weed
+        call brownie_weed from _call_brownie_weed
     elif curRecipe == allRecipes['mooncake_normal']:
-        call mooncake_normal
+        call mooncake_normal from _call_mooncake_normal
     elif curRecipe == allRecipes['mooncake_redbean']:
-        call mooncake_redbean
+        call mooncake_redbean from _call_mooncake_redbean
     elif curRecipe == allRecipes['mooncake_blue']:
-        call mooncake_blue
+        call mooncake_blue from _call_mooncake_blue
     elif curRecipe == allRecipes['pineapple_bun_normal']:
-        call pineapple_bun_normal
+        call pineapple_bun_normal from _call_pineapple_bun_normal
     elif curRecipe == allRecipes['pineapple_bun_custard']:
-        call pineapple_bun_custard
+        call pineapple_bun_custard from _call_pineapple_bun_custard
     elif curRecipe == allRecipes['pineapple_bun_pineapple']:
-        call pineapple_bun_pineapple
+        call pineapple_bun_pineapple from _call_pineapple_bun_pineapple
     elif curRecipe == allRecipes['milk_bread_normal']:
-        call milk_bread_normal
+        call milk_bread_normal from _call_milk_bread_normal
     elif curRecipe == allRecipes['milk_bread_strawberry']:
-        call milk_bread_strawberry
+        call milk_bread_strawberry from _call_milk_bread_strawberry
     elif curRecipe == allRecipes['bread_milk']:
-        call bread_milk
+        call bread_milk from _call_bread_milk
     elif curRecipe == allRecipes['sugar_cookie_normal']:
-        call sugar_cookie_normal
+        call sugar_cookie_normal from _call_sugar_cookie_normal
     elif curRecipe == allRecipes['croissant_normal']:
-        call croissant_normal
+        call croissant_normal from _call_croissant_normal
     elif curRecipe == allRecipes['croissant_chocolate']:
-        call croissant_chocolate
+        call croissant_chocolate from _call_croissant_chocolate
     return
 
 label brownie_normal:
@@ -81,7 +81,7 @@ label brownie_weed:
     show boss neutral
     boss "[playerName] why didn't you serve the brownies you made today? Did something go wrong?"
     boss "I had one and thought it was perfectly fine— perhaps a bit funky, but nothing the average customer would turn their nose at."
-    call weed_brownie_menu
+    call weed_brownie_menu from _call_weed_brownie_menu
     hide boss neutral
     show boss excited
     "You begin to tell him a story about a magical herb, but he quickly loses interest. You are freer than you have ever been. You spend the rest of your shift watching Family Guy YouTube compilations."
@@ -95,7 +95,8 @@ menu weed_brownie_menu:
         return
 
 label mooncake_normal:
-    "Your ingredients today have left you with a dreadfully daunting process ahead of you: making mooncakes. A part of you is terrified, familiar with all the complex patterns sculpted into them. You imagine structuring an ornate design onto the top of the cake. You have an exacto-knife prepared and everything."
+    "Your ingredients today have left you with a dreadfully daunting process ahead of you: making mooncakes. A part of you is terrified, familiar with all the complex patterns sculpted into them."
+    "You imagine structuring an ornate design onto the top of the cake. You have an exacto-knife prepared and everything."
     show boss neutral
     boss "Ah, [playerName], is this your first time making mooncakes? The mold is in the upper cabinet next to the sink, middle drawer."
     "You run your finger through the drawers to reach the one you're looking for, and pull out the molds; their complexity is marvelous. There are only three different kinds, marked mung bean, red bean, and lotus. You opt for mung, today. Getting the exact measurements is about as difficult as you imagine, but you feel a sense of pride as you cool them to be served tomorrow."
@@ -139,7 +140,8 @@ label pineapple_bun_normal:
 
 label pineapple_bun_custard:
     "Your ingredients have left you inclined to make pineapple buns yet again, this time with a custard cream filling."
-    "Custard always makes you think of those British children’s television mascots, standing in technicolor at their amazonian height, crowded around a machine pumping out pepto-bismol toned custard. You think of Tinky Winky, the purple titan, clutching his red Valentino purse around his limp wrist."
+    "Custard always makes you think of those British children’s television mascots, standing in technicolor at their amazonian height, crowded around a machine pumping out pepto-bismol toned custard."
+    "You think of Tinky Winky, the purple titan, clutching his red Valentino purse around his limp wrist."
     "You think of how they made him into a martyr. A diva who danced too close to the sun."
     show boss neutral
     boss "I was always partial to Po."
@@ -164,7 +166,7 @@ label milk_bread_normal:
     "Ginger walks in on you soaking a bag of store-bought sandwich bread in a bowl of milk."
     show boss neutral
     boss "[playerName], what are you doing?"
-    call milk_bread_menu
+    call milk_bread_menu from _call_milk_bread_menu
     boss "Now, there are a number of methods to make milk bread, even if I'm not familiar with the one you were trying… "
     boss "The way I've always made it is using tangzhong, a roux that we boil in milk in order to soften the bread. Now, luckily, I already have some dough prepared…"
     boss "I trust that you can work out how to bake it from here."

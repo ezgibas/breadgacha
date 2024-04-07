@@ -24,7 +24,8 @@ define wife = Character('Honey')
 define wife_unknown = Character('???')
 
 init python:
-    speedrun = True
+    renpy.music.register_channel("music", mixer="music")
+    speedrun = False
     debug = False
     from game.mech.global_vars import Variables
     from game.mech.cookbook import Recipe
@@ -32,19 +33,27 @@ init python:
     bakeryName, playerName, game_state, allRecipes, randomIngredients, chosenIngredients, imagemap = global_vars.getVariables()
     curRecipe = None
     recipeImagePath = "images/food/tart.png"
+    cookbook = game_state.getCookbook()
     if speedrun:
-        cookbook = game_state.getCookbook()
-        cookbook.addrecipe(Recipe('sldkf', 'stuff')) 
-        cookbook.addrecipe(Recipe('sldkf2', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf3', 'stuff')) 
-        cookbook.addrecipe(Recipe('sldkf4', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf5', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf6', 'stuff')) 
-        cookbook.addrecipe(Recipe('sldkf7', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf8', 'stuff')) 
-        cookbook.addrecipe(Recipe('sldkf9', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf10', 'stuff'))
-        cookbook.addrecipe(Recipe('sldkf11', 'stuff'))
+        cookbook.addrecipe(Recipe('Tart', 'A delicious tart with a flaky crust and a sweet filling.'))
+        # cookbook.addrecipe(Recipe('sldkf', 'stuff')) 
+        # cookbook.addrecipe(Recipe('sldkf2', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf3', 'stuff')) 
+        # cookbook.addrecipe(Recipe('sldkf4', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf5', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf6', 'stuff')) 
+        # cookbook.addrecipe(Recipe('sldkf7', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf8', 'stuff')) 
+        # cookbook.addrecipe(Recipe('sldkf9', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf10', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf11', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf12', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf13', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf14', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf15', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf16', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf17', 'stuff'))
+        # cookbook.addrecipe(Recipe('sldkf18', 'stuff'))
 
 # The game starts here.
 
@@ -52,7 +61,7 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-    call name_entry 
+    call name_entry from _call_name_entry 
     if not speedrun:
         "[bakeryName] Pâtisserie: once a critically-acclaimed bakery, now on the verge of bankruptcy."
         "You weren't qualified to take this job, certainly. In fact, you have absolutely no formal training. In fact, it's not even a real job."
@@ -60,7 +69,7 @@ label start:
 
         "For you, a directionless, jobless drifter, this is a chance to get your foot in the door of a real business, albeit one that has seen far better days."
         "For Ginger Fāng, a family friend and a formerly world-renowned baker, the help you are providing will lift some of the weight off his shoulders. It's not quite a win-win, but you can't say you aren't excited."
-    call day_loop
+    call day_loop from _call_day_loop
 
 
 label name_entry:
@@ -77,20 +86,21 @@ label name_entry:
     return
 
 label day_loop:
+
     scene bakery_morning
-    # show screen cookbook_button # TODO 
-    call morning_scenes
-    call bake
+    play music "audio/music/Bakery Jazz.wav"
+    call morning_scenes from _call_morning_scenes
+    call bake from _call_bake
     scene bakery_night
-    call night_scenes
-    # TODO at some point this needs to jump to the end of the game
-    if game_state.countCompletedRecipes() == 18:
+    call night_scenes from _call_night_scenes
+    if game_state.countCompletedRecipes() >= 18:
         jump game_end
     else:
         jump day_loop
 
 label bake:
     scene kitchen
+    play music "audio/music/Cooking Minigame (1).wav"
     call screen baking_screen_1
     call screen baking_screen_2
     return

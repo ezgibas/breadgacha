@@ -6,7 +6,9 @@ label game_end:
     boss "[playerName]... I did not know what to expect when I took you on as my apprentice. You came here ambitionless, just as I had become since… well."
     boss "Regardless, we both seemed to find enough passion to save this place, it seems. There’s just one problem…”"
     "He fiddles with his apron, averting his gaze from you. He looks distraught."
-    call game_end_menu1
+    jump game_end_menu1 
+
+label game_end_part2:
     boss "I absorbed myself in my work until nobody wanted anything to do with me. Then I began to want nothing to do with myself." 
     show boss sad
     boss "I don’t enjoy this profession anymore, [playerName]. I don’t think I have for a long time."
@@ -62,28 +64,37 @@ label game_end:
     boss "[playerName], you’re the one to thank for all of this. I’ve been so focused on the bakery, myself, and my honey that I’ve neglected to ask you about any of this."
     boss "I come to you now, not as a boss or a mentor, but as a business partner and a friend. All of this could be yours, if you want it— but only if you’re sure it’s what you want. Running something like this comes at a cost, as I’m sure you’ve learned… All that matters is that this decision is your own, no one else’s."
     boss "What I mean to say is: [playerName], where do you want to go from here?"
-    call final_menu
+    jump final_menu 
+
+label game_end_part3:
     wife "Look, we’ve got a trip to plan for. Whether you want to pat each other’s backs and sing Kumbaya or throw a kegger, you should make it quick. I’ll see you at home, Ginger."
     hide wife with dissolve
     boss "Heh."
     boss "Thanks for everything, [playerName]. Until next time."
+    return
 
 
 menu game_end_menu1:
     "You still want to sell the place?":
         boss "Not exactly, but there is some truth to that…"
+        jump game_end_part2
     "You want to fire me?":
         boss "What?! No, quite the contrary, [playerName]..."
+        jump game_end_part2
     "You’re still upset about Honey?":
         boss "I wasn’t talking about that, but if you really must know…"
+        jump game_end_part2
 
 menu final_menu:
     "Take over [bakeryName] Pâtisserie.":
         boss "I wouldn’t leave it in the hands of anybody else, [playerName]."
+        jump game_end_part3
     "Quit baking and retire to a life of crime.":
         boss "Heh, you and me both, kid."
+        jump game_end_part2
     "I’m not sure…":
         boss "That’s okay, [playerName]. It took me much more time to come to my own decision."
+        jump game_end_part3
 
 
 

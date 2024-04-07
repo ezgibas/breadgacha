@@ -3,17 +3,16 @@ label night_scenes:
         "Congrats on completing your first day at [bakeryName] Pâtisserie!"
         return
     if game_state.countCompletedRecipes() == 3:
-        call core_half_complete
+        call core_half_complete from _call_core_half_complete
         
     if game_state.countCompletedRecipes() == 6:
-        call core_full_complete
+        call core_full_complete from _call_core_full_complete
 
     if game_state.countCompletedRecipes() == 16:
-        call complete_16
+        call complete_16 from _call_complete_16
     else:
         "Another day at [bakeryName] Pâtisserie comes to a close."
         return
-        
     return
 
 
@@ -27,7 +26,7 @@ label core_half_complete:
     boss "Oh, [playerName]! You are finished for the day, yes? Fine… You may go."
     "You grab your things and head out, only for him to call to you when you're at the door."
     boss "Wait! [playerName], I would like to ask you a question. Have you ever been in love?"
-    call yes_no
+    call yes_no from _call_yes_no
     boss "I see… I don't believe you've met my honey before. I'm not sure if she would love you or hate you. Heh."
     hide boss neutral
     show boss sad
@@ -48,7 +47,7 @@ label core_full_complete:
     "Your boss taps you on the shoulder, his typically mopey expression replaced by a half-hearted grin."
     show boss happy
     boss "[playerName]… You should be proud, you know. You've mastered each of [bakeryName] Pâtisserie's classic recipes. How do you feel now, kiddo?"
-    call core_recipes_complete_menu
+    call core_recipes_complete_menu from _call_core_recipes_complete_menu
     hide boss happy
     show boss happy
     boss "You know, the bakery wasn't in the best state before you got here. I don't think I've taken care of it, or myself, in a while. 
@@ -75,7 +74,7 @@ label core_full_complete:
     hide wife angry
     show wife angry # show her at center
     wife "“Hmph. [playerName], did you make this [curRecipe]*?"
-    call honey_critique_menu
+    call honey_critique_menu from _call_honey_critique_menu
     "Honey cautiously takes a bite of the [curRecipe], covering her face with a handkerchief as she chews. She swallows and sets it down, taking pause to contemplate."
     wife "Hmm… It's not half-bad, actually. But I have notes, of course. You used too much [ingredient1] and not enough [ingredient2]."
     wife "The consistency is awful, perhaps because it is far too overcooked. Still, you have drive, it seems."
@@ -114,7 +113,7 @@ label complete_16:
     show boss happy
     boss "[playerName], I’ve been meaning to talk to you about something. I’m sure you’ve recognized that things have gotten much busier around here."
     boss " I was on the verge of selling before you started here. You know, when I first hired you, I didn’t expect you’d have this much of an impact on the pâtisserie, but here we are… How do you feel about all this, [playerName]?"
-    call complete_16_menu
+    call complete_16_menu from _call_complete_16_menu
     boss "Ah, I see... [playerName], you should understand that this is no small feat."
     boss "When I was your age, my dreams may have far surpassed a small business such as this one, but in terms of my actual accomplishments… Well, it’s not time for celebration."
     boss "Not yet, anyway. Your cookbook is nearing completion. Only a few more recipes and you’ll be done."

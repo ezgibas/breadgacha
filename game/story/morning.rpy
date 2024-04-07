@@ -2,7 +2,7 @@
 
 label morning_scenes:
     if game_state.countCompletedRecipes() == 12:
-        call complete_12
+        call complete_12 from _call_complete_12
     else:
         "good morning"
 
@@ -38,7 +38,7 @@ label complete_12_part2:
     wife "Hmm… I have to say, [playerName]. I wasn't expecting this. You've improved as a baker, you know."
     wife "An old dog can't learn new tricks, but they may teach a pup their own. You have enormous potential, [playerName]. My advice? Don't waste it here."
     show wife neutral
-    call honey_advice_menu
+    call honey_advice_menu from _call_honey_advice_menu
     wife "Regardless, you shouldn't marry yourself to the work. Only keep doing this if you're sure it's what you really want. Take it from me."
     "For a moment, you recognize an ounce of compassion in Honey's tone. She is far less fulfilled than you suspected."
     wife "I wasn't always like this, you know. Ginger was always so saccharine, even if he's mellowed out now. He was always too afraid to hurt someone's feelings, to let someone go… "

@@ -33,7 +33,7 @@ label get_recipe(ingredient1, ingredient2):
         call screen roll_for_recipe_variation
         $ curRecipe = game_state.rollForVariation(curRecipe)
         $ recipeName = curRecipe.name
-    call show_recipe(curRecipe)
+    call show_recipe(curRecipe) from _call_show_recipe
     return
 
 
@@ -43,7 +43,7 @@ label show_recipe(curRecipe):
     show image [recipeImagePath] at top
     "You used [ingredient1] and [ingredient2] to make a [recipeName]!"
     hide recipe_image
-    call show_recipe_dialogue(curRecipe)
+    call show_recipe_dialogue(curRecipe) from _call_show_recipe_dialogue
 
     return
 
@@ -52,10 +52,10 @@ label show_recipe_dialogue(recipe):
         show boss neutral
         boss "[playerName], have I previously given you any advice on how to bake [recipeName]?"
         hide boss neutral
-        call repeat_recipe_dialogue
+        call repeat_recipe_dialogue from _call_repeat_recipe_dialogue
     else:
         $ game_state.getCookbook().addrecipe(curRecipe)
-        call current_recipe_dialogue(curRecipe)
+        call current_recipe_dialogue(curRecipe) from _call_current_recipe_dialogue
     return
     
 
@@ -67,7 +67,7 @@ menu repeat_recipe_dialogue:
     "Yes, but tell me again.":
         show boss happy
         boss "Ah, but of course. I've scarcely met someone quite as eager to learn as you."
-        call current_recipe_dialogue(curRecipe)
+        call current_recipe_dialogue(curRecipe) from _call_current_recipe_dialogue_1
         hide boss happy
 
 screen roll_for_recipe_variation:
