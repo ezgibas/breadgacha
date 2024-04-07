@@ -22,11 +22,14 @@ init python:
     from game.mech.global_vars import Variables
     from game.mech.cookbook import Recipe
     global_vars = Variables()
-    bakeryName, playerName, game_state, allRecipes, randomIngredients, chosenIngredients, cookbook = global_vars.getVariables()
+    bakeryName, playerName, game_state, allRecipes, randomIngredients, chosenIngredients = global_vars.getVariables()
     curRecipe = None
     if speedrun:
-        cookbook.addrecipe(Recipe('Brownie', 'stuff')) 
-        cookbook.addrecipe(Recipe('Mooncake', 'stuff'))
+        cookbook.addrecipe(Recipe('sldkf', 'stuff')) 
+        cookbook.addrecipe(Recipe('sldkf2', 'stuff'))
+        cookbook.addrecipe(Recipe('sldkf3', 'stuff')) 
+        cookbook.addrecipe(Recipe('sldkf4', 'stuff'))
+        cookbook.addrecipe(Recipe('sldkf5', 'stuff'))
 
 # The game starts here.
 

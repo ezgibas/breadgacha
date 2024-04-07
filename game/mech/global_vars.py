@@ -14,7 +14,6 @@ class Variables:
         randomIngredients = ['Egg', 'Flour', 'Butter']
         chosenIngredients = ['Sugar, Milk']
 
-
         # recipes
         allRecipes = {}
 
@@ -66,12 +65,9 @@ class Variables:
         allRecipes['croissant_almond'] = croissant_almond
         allRecipes['croissant_chocolate'] = croissant_chocolate
 
-        
+        game = GameState(Cookbook(), randomIngredients, chosenIngredients, allRecipes) 
 
-        cookbook = Cookbook()
-        game = GameState(cookbook, randomIngredients, chosenIngredients, allRecipes) 
-
-        return bakeryName, playerName, game, allRecipes, randomIngredients, chosenIngredients, cookbook
+        return bakeryName, playerName, game, allRecipes, randomIngredients, chosenIngredients
 
 
 
