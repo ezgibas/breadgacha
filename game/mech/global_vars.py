@@ -68,9 +68,32 @@ class Variables:
         allRecipes['croissant_almond'] = croissant_almond
         allRecipes['croissant_chocolate'] = croissant_chocolate
 
+        imagemap = {}
+
+        imagemap['Bread Milk'] = "images/food/bread_milk.png"
+        imagemap['Strawberry Milk Bread'] = "images/food/bread_strawberry.png"
+        imagemap['Milk Bread'] = "images/food/bread_plain.png"
+        imagemap['Pain au Chocolat'] = "images/food/croissant_chocolat.png"
+        imagemap['Almond Croissant'] = "images/food/croissant_almond.png"
+        imagemap['Croissant'] = "images/food/croissant_plain.png"
+        imagemap['Sugar Cookie with Birthday Sprinkles'] = "images/food/cookie_birthday.png"
+        imagemap['Pink Sugar Cookie'] = "images/food/cookie_pink.png"
+        imagemap['Sugar Cookie'] = "images/food/cookie_plain.png"
+        imagemap['Pineapple Pineapple Bun'] = "images/food/pineapple_pineapple.png"
+        imagemap['Custard Bun'] = "images/food/pineapple_cream.png"
+        imagemap['Pineapple Bun'] = "images/food/pineapple_plain.png"
+        imagemap['Blue Mooncake'] = "images/food/mooncake_blue.png"
+        imagemap['Red Bean Mooncake'] = "images/food/mooncake_red.png"
+        imagemap['Mooncake'] = "images/food/mooncake_plain.png"
+        imagemap['Space Brownie'] = "images/food/brownie_weed.png"
+        imagemap['Blondie'] = "images/food/brownie_blondie.png"
+        imagemap['Brownie'] = "images/food/brownie_plain.png"
+
+        # image tart normal = "images/food/tart_plain.png"
+
         game = GameState(Cookbook(), randomIngredients, chosenIngredients, allRecipes) 
 
-        return bakeryName, playerName, game, allRecipes, randomIngredients, chosenIngredients
+        return bakeryName, playerName, game, allRecipes, randomIngredients, chosenIngredients, imagemap
 
 
 
