@@ -47,8 +47,9 @@ label core_full_complete:
     "Your boss taps you on the shoulder, his typically mopey expression replaced by a half-hearted grin."
     show boss happy
     boss "[playerName]… You should be proud, you know. You've mastered each of [bakeryName] Pâtisserie's classic recipes. How do you feel now, kiddo?"
-    call core_recipes_complete_menu from _call_core_recipes_complete_menu
-    hide boss happy
+    jump core_recipes_complete_menu 
+
+label core_full_complete_part2:
     show boss happy
     boss "You know, the bakery wasn't in the best state before you got here. I don't think I've taken care of it, or myself, in a while. 
         You've really turned things around, you know? What I mean to say is thank you, [playerName]."
@@ -74,7 +75,9 @@ label core_full_complete:
     hide wife angry
     show wife angry # show her at center
     wife "“Hmph. [playerName], did you make this [curRecipe]*?"
-    call honey_critique_menu from _call_honey_critique_menu
+    jump honey_critique_menu
+
+label core_full_complete_part3:
     "Honey cautiously takes a bite of the [curRecipe], covering her face with a handkerchief as she chews. She swallows and sets it down, taking pause to contemplate."
     wife "Hmm… It's not half-bad, actually. But I have notes, of course. You used too much [ingredient1] and not enough [ingredient2]."
     wife "The consistency is awful, perhaps because it is far too overcooked. Still, you have drive, it seems."
@@ -91,21 +94,26 @@ label core_full_complete:
 menu honey_critique_menu:
     "Yes":
         "I could tell. Your presentation is atrocious."
+        jump core_full_complete_part3
     "No":
         "Don't lie to me! You may cheat your way through making this [curRecipe] with your sloppy technique, but you will not deceive a professional such as myself."
+        jump core_full_complete_part3
 
 menu core_recipes_complete_menu:
     "Excited to push the menu even further, sir!":
         boss "Heh. That is what I like to hear."
         hide boss happy
+        jump core_full_complete_part2
     "That was it? It wasn't so hard.":
         # hide boss happy
         show boss neutral
         boss "Oh, tough guy, are you now? Do not let your hubris supercede your talent."
         hide boss neutral
+        jump core_full_complete_part2
     "Um… can I go now?":
         boss "Ha! Good one. You still have much to learn."
         hide boss happy
+        jump core_full_complete_part2
 
 label complete_16:
     "You’ve noticed there’s scarcely a moment where the bustle of customers dies down anymore. What you would now deem a slow day would have been the busiest you’ve ever experienced when you first started here."

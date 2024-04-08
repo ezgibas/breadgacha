@@ -4,8 +4,7 @@ label morning_scenes:
     if game_state.countCompletedRecipes() == 12:
         call complete_12 from _call_complete_12
     else:
-        "good morning"
-
+        "It is a beautiful morning at [bakeryName] Pâtisserie." 
     return
 
 label complete_12:

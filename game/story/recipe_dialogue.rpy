@@ -99,7 +99,9 @@ label mooncake_normal:
     "You imagine structuring an ornate design onto the top of the cake. You have an exacto-knife prepared and everything."
     show boss neutral
     boss "Ah, [playerName], is this your first time making mooncakes? The mold is in the upper cabinet next to the sink, middle drawer."
-    "You run your finger through the drawers to reach the one you're looking for, and pull out the molds; their complexity is marvelous. There are only three different kinds, marked mung bean, red bean, and lotus. You opt for mung, today. Getting the exact measurements is about as difficult as you imagine, but you feel a sense of pride as you cool them to be served tomorrow."
+    "You run your finger through the drawers to reach the one you're looking for, and pull out the molds; their complexity is marvelous."
+    "There are only three different kinds, marked mung bean, red bean, and lotus. You opt for mung, today."
+    "Getting the exact measurements is about as difficult as you imagine, but you feel a sense of pride as you cool them to be served tomorrow."
     boss "You know, [playerName], as a child, I would only eat mooncakes once a year, during the Mid-Autumn festival. The first year that me and my honey were together, I baked some for our own local festival." 
     boss "She told me it was the best thing I had ever baked— which, I was, and still am, skeptical to believe, but ever since then, I decided to bake them year-round…"
     boss  "Er, anyway, good work, [playerName]. I hope these mooncakes can bring our customers the same joy they once brought me…"

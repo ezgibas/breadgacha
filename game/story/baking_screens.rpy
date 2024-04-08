@@ -25,7 +25,8 @@ screen baking_screen_2:
             action [Call("get_recipe", ingredient1, "Milk")]
 
 
-label get_recipe(ingredient1, ingredient2):
+label get_recipe(ingredient1, ingredient2_name):
+    $ ingredient2 = ingredient2_name
     $ curRecipe = game_state.getRecipeFromIngredients(ingredient1, ingredient2)
     if game_state.countCompletedRecipes() >= 6:
         if game_state.countCompletedRecipes() == 6:

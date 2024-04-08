@@ -55,7 +55,7 @@ label game_end_part2:
     wife "..."
     boss "That’s what you love about me, right, princess?"
     wife "Peh. Bring it in, prince."
-    show boss excited at left
+    scene end
     "The husband and wife wrap their arms around each other for the first time in what feels like a lifetime." 
     "Their reunion is not one of romance, but of love; two things that are inextricably linked, but still hold a weight of their own."
     "Where they were and who they are is not what matters; only that they found their way back to one another, regardless of whether or not they find themselves in the same place."
